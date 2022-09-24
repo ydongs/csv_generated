@@ -33,11 +33,11 @@ def generated_report(auto, manual, wo, option):
         for i in range(len(model_)):
             if float(without_[i])==0:
                 auto_vs_wo_speedup='x'
-                auto_vs_manual_diff='x'
+                auto_vs_manual_%diff='x'
             else:
                 auto_vs_wo_speedup = '%.6f' % (float(auto_[i]) / float(without_[i]))
-                auto_vs_manual_diff = '%.6f' % abs((float(manual_[i]) - float(without_[i])) / float(without_[i]))
-            lists = [model_[i], auto_[i], manual_[i], without_[i], auto_vs_wo_speedup, auto_vs_manual_diff]
+                auto_vs_manual_%diff = 100*(abs((float(auto_[i]) - float(manual_[i])) / min(float(auto_[i]),float(manual_[i])))
+            lists = [model_[i], auto_[i], manual_[i], without_[i], auto_vs_wo_speedup, auto_vs_manual_%diff]
             writer.writerows([lists])
 
 
